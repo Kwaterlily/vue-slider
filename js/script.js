@@ -1,11 +1,7 @@
-// Partendo dal markup dei file che vi passo nello zip, far funzionare lo slider.
-// Avrà sia le funzionalità di navigazione Prev-Next (con anche il cambio della thumb attiva) come fatto insieme questa mattina,
-// sia la possibilità di navigazione direttamente dalle thumb (ovvero se clicco su una thumb quella diventa active e vedo l’item corrispondente in grande).
-
 const appArray = new Vue ({
     el: "#app",
     data: {
-        slideActive: 0,
+        slideOn: 0,
         slides: [
             {
                 image: 'img/01.jpg',
@@ -36,17 +32,18 @@ const appArray = new Vue ({
     },
     methods: {
         next: function () {
-            if (this.slideActive === slides.length - 1 ) {
-                this.slideActive = 0;
+            if (this.slideOn === slides.length - 1 ) {
+                this.slideOn = 0;
             } else 
-            this.slideActive ++;
+            this.slideOn ++;
         },
         prev: function () {
-            if (this.slideActive === 0) {
-                this.slideActive = slides.length - 1;
+            if (this.slideOn === 0) {
+                this.slideOn = slides.length - 1;
             }   else 
-                this.slideActive --;
+                this.slideOn --;
         },
+        
     }
 });
 
